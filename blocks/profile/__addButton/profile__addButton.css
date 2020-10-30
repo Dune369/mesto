@@ -1,0 +1,34 @@
+.profile__addButton {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  border:none;
+  background: #000;
+  background-image: url(../../../images/add.png);
+  outline: none;
+}
+
+.profile__addButton:hover {
+  background-image: url(../../../images/abb-hover.png);
+}
+
+
+
+@media (max-width: 984px){
+  .profile__addButton {
+    background-image: url(../../../images/add-width.png);
+    width: 282px;
+    position: relative;
+    margin-top: 53px;
+  }
+}
+
+@media (max-width: 420px){
+  .profile__addButton {
+    margin-top: 36px;
+  }
+
+  .profile__addButton:hover {
+    background-image: url(../../../images/add-width.png);
+  }
+}

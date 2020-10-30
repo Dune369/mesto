@@ -1,0 +1,22 @@
+.profile__sabtitle {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+
+@media (max-width: 984px){
+  .profile__sabtitle {
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px){
+  .profile__sabtitle {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

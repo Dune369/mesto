@@ -1,0 +1,19 @@
+.profile__info {
+  margin-left: -220px;
+  display: grid;
+  grid-template-columns: 293px 30px;
+}
+
+@media (max-width: 984px){
+  .profile__info {
+    margin-left: 0px
+  }
+}
+
+@media (max-width: 420px){
+  .profile__info {
+    margin-top: 22.25px;
+    margin-left: 29px;
+    grid-template-columns: 189px 30px;
+  }
+}
