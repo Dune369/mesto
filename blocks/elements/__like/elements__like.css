@@ -1,0 +1,18 @@
+.elements__like {
+  height: 23px;
+  width: 25px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  background-image: url(../../../images/like.svg);
+  margin-top: 31px;
+  margin-right: 11px;
+  outline: none;
+  background-color: transparent;
+}
+
+
+.elements__like:hover {
+  background-image: url(../../../images/like-blake.svg);
+}
+
