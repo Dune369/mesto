@@ -33,5 +33,12 @@
   .profile__addButton {
     margin-top: 36px;
   }
+  
+  .profile__add-button:hover {
+    background-image: url(../../../images/add-black.png);
+    opacity: 80%;
+    border: 1px solid #fff;
+    
+  }
 
 }
