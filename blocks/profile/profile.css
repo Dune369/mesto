@@ -1,11 +1,13 @@
 .profile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+ position: relative;
+ display: flex;
+  
 }
 
 @media (max-width: 984px){
   .profile {
+    display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }

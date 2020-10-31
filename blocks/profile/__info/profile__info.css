@@ -1,7 +1,8 @@
 .profile__info {
-  margin-left: -220px;
-  display: grid;
-  grid-template-columns: 293px 30px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  align-self: center;
 }
 
 @media (max-width: 984px){

@@ -7,17 +7,8 @@
   position: relative;
   box-sizing: border-box;
   padding: 36px;
-
 }
 
-@media screen and (max-width: 767px) {
-  .popup__container {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    margin-top: 73px;
-  }
-}
 
 @media screen and (max-width: 420px) {
   .popup__container {
@@ -27,11 +18,3 @@
   }
 }
 
-/*.popup_opened:before {
-  color: #fff;
-  content: 'X';
-  font-size: 40px;
-  display: block;
-  width: 30px;
-  height: 40px;
-}

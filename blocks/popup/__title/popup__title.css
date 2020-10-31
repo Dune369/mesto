@@ -5,3 +5,16 @@
   line-height: 29px;
   margin: 0;
 }
+
+
+@media (max-width: 420px){
+  .popup__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+
+
+
+

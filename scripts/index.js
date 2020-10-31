@@ -1,6 +1,6 @@
 let popup = document.querySelector('.popup');
 let popupClose = document.querySelector('.popup__close');
-let editButton = document.querySelector('.profile__editButton');
+let editButton = document.querySelector('.profile__edit-button');
 
 let title = document.querySelector('.profile__title');
 let sabtitle = document.querySelector('.profile__sabtitle');
