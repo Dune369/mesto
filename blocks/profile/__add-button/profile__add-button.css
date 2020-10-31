@@ -16,14 +16,16 @@
   background-image: url(../../../images/abb-hover.png);
 }
 
-
-
 @media (max-width: 984px){
   .profile__add-button {
     background-image: url(../../../images/add-width.png);
     width: 282px;
     position: relative;
     margin-bottom: 27px;
+  }
+  .profile__add-button:hover {
+    background-image: url(../../../images/add-width.png);
+    width: 282px;
   }
 }
 
