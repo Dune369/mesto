@@ -5,27 +5,27 @@
   width: 150px;
   height: 50px;
   cursor: pointer;
-  border:none;
+  border: 1px solid #fff;
+  border-radius: 2px;
   background: #000;
-  background-image: url(../../../images/add.png);
+  background-image: url(../../../images/add-white.png);
   background-repeat: no-repeat;
+  background-position: center;
   outline: none;
 }
 
 .profile__add-button:hover {
-  background-image: url(../../../images/abb-hover.png);
+  background-image: url(../../../images/add-black.png);
+  opacity: 80%;
+  border: 1px solid #fff;
+  
 }
 
 @media (max-width: 984px){
   .profile__add-button {
-    background-image: url(../../../images/add-width.png);
     width: 282px;
     position: relative;
     margin-bottom: 27px;
-  }
-  .profile__add-button:hover {
-    background-image: url(../../../images/add-width.png);
-    width: 282px;
   }
 }
 
@@ -34,7 +34,4 @@
     margin-top: 36px;
   }
 
-  .profile__addButton:hover {
-    background-image: url(../../../images/add-width.png);
-  }
 }
