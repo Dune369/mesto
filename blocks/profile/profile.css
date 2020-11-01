@@ -1,7 +1,6 @@
 .profile {
- position: relative;
  display: flex;
-  
+
 }
 
 @media (max-width: 984px){

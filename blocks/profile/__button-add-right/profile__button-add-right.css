@@ -1,0 +1,14 @@
+.profile__button-add-right {
+  width: 45%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+@media (max-width: 984px){
+  .profile__button-add-right {
+    width: 282px;
+    margin-top: 30px;
+    height: 50px;
+  }
+}

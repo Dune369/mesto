@@ -4,6 +4,7 @@
   cursor: pointer;
   background: #000;
   background-image: url(../../../images/edite-pencil.png);
+  background-size: 10px 10px;
   border: 1px solid #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,10 +14,7 @@
 }
 
 .profile__edit-button:hover {
-  background-image: url(../../../images/edite-pencil-hover.png);
-  background-position: center;
   opacity: 80%;
-  border: 1px solid #fff;
 }
 
 
@@ -25,9 +23,7 @@
     margin-top: 7px;
     width: 18px;
     height: 18px;
-    background-image: url(../../../images/edit18.png);
-    background-position: center;
-    border: 1px solid #fff;
+    background-size: 8px 8px;
     margin-left: 9px;
   }
 }
