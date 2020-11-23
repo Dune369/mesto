@@ -16,8 +16,5 @@
 .click-img__button-close:hover {
   background: transparent url('../../../images/Close-icon.png') center no-repeat;
   background-size: 40px 40px;
-}
-
-.click-img__button-close:hover {
   opacity: 0.6;
 }

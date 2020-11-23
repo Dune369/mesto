@@ -7,7 +7,7 @@
 
 @media (max-width: 984px){
   .profile__info {
-    margin-left: 0px
+    margin-left: 0;
   }
 }
 

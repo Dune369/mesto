@@ -16,9 +16,6 @@
 .popup__close:hover {
   background: transparent url('../../../images/Close-icon.png') center no-repeat;
   background-size: 40px 40px;
-}
-
-.popup__close:hover {
   opacity: 0.6;
 }
 
