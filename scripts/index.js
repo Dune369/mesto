@@ -147,7 +147,7 @@ clickImgButtonClose.addEventListener('click', closeClickImg);
 const formAddForm = document.querySelector('.popup__form_add');
 formAddForm.addEventListener('submit', event => {
   event.preventDefault();
-  const formAddTitle = formAddForm.querySelector('.popup__form_title').value
+  const formAddTitle = formAddForm.querySelector('.popup__input_title').value
   const inputAddlink = formAddForm.querySelector('.popup__input_link').value
   const obj =
         {
