@@ -1,0 +1,14 @@
+.elements__remove {
+  background: none;
+  background-image: url(../../../images/remove.png);
+  border: none;
+  cursor: pointer;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+.elements__remove:hover {
+  opacity: 60%;
+}

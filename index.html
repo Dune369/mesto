@@ -27,57 +27,8 @@
           </div>
         </section>
 
-
         <section class="elements">
-          <ul class="elements__items">
-            <li class="elements__item">
-              <img class="elements__img" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
-              <div class="elements__info">
-                <h2 class="elements__title">Карачаево-Черкесия</h2>
-                <button class="elements__like" type="button"></button>
-              </div>
-            </li>
-
-            <li class="elements__item">
-              <img class="elements__img" src="./images/albrus.jpg" alt="Гора Эльбрус">
-              <div class="elements__info">
-                <h2 class="elements__title">Гора Эльбрус</h2>
-                <button class="elements__like" type="button"></button>
-              </div>
-            </li>
-
-            <li class="elements__item">
-              <img class="elements__img" src="./images/dombai.jpg" alt="Домбай">
-              <div class="elements__info">
-                <h2 class="elements__title">Домбай</h2>
-                <button class="elements__like" type="button"></button>
-              </div>
-            </li>
-
-            <li class="elements__item">
-              <img class="elements__img" src="./images/altai-min.jpg" alt="Алтай">
-              <div class="elements__info">
-                <h2 class="elements__title">Алтай</h2>
-                <button class="elements__like" type="button"></button>
-              </div>
-            </li>
-
-            <li class="elements__item">
-              <img class="elements__img" src="./images/baikal-min.jpg" alt="Байкал">
-              <div class="elements__info">
-                <h2 class="elements__title">Байкал</h2>
-                <button class="elements__like" type="button"></button>
-              </div>
-            </li>
-
-            <li class="elements__item">
-              <img class="elements__img" src="./images/kamchatka-min.jpg" alt="Камчатка">
-              <div class="elements__info">
-                <h2 class="elements__title">Камчатка</h2>
-                <button class="elements__like" type="button"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="elements__items"></ul>
         </section>
       </main>
 
@@ -96,7 +47,40 @@
           </form>
         </div>
       </div>
+
+      <div class="popup popup_add-a-place">
+        <div class="popup__container">
+          <button type="button" class="popup__close popup__close_add-a-place"></button>
+          <h3 class="popup__title popup__title_color">Новое место</h3>
+          <form name="firspopup" class="popup__form popup__form_add-form">
+              <input type="text" name="firstname" placeholder = "Название" value="" class="popup__input popup__form_add-title">
+              <input type="text" name="firstjob" placeholder = "Ссылка на картинку" value="" class="popup__input popup__input_add-link">
+              <button class="popup__button" type="submit">Сахранить</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="click-img">
+        <div class="click-img__container">
+          <img class="click-img__img" src="" alt="">
+          <button class="click-img__button-close" type="button"></button>
+          <h2 class="click-img__title"></h2>
+        </div>
+      </div>
     </div>
-    <script src="./scripts/index.js"></script>
+
+    <template class="elements-toddo">
+        <li class="elements__item">
+          <img class="elements__img elements__img_click" src="" alt="">
+          <button class="elements__remove" type="button"></button>
+          <div class="elements__info">
+            <h2 class="elements__title"></h2>
+            <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+    </template>
+
+    <script src="./scripts/index.js">текст</script>
+
   </body>
 </html>

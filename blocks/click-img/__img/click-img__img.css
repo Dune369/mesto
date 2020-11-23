@@ -1,0 +1,9 @@
+.click-img__img{
+    max-width: 75vw;
+    max-height: 75vh;
+    position: relative;
+    box-sizing: border-box;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+}
