@@ -144,11 +144,11 @@ clickImgButtonClose.addEventListener('click', closeClickImg);
 
 
 // Добавляем в массив ссылку и текст
-const formAddForm = document.querySelector('.popup__form_add-form');
+const formAddForm = document.querySelector('.popup__form_add');
 formAddForm.addEventListener('submit', event => {
   event.preventDefault();
-  const formAddTitle = formAddForm.querySelector('.popup__form_add-title').value
-  const inputAddlink = formAddForm.querySelector('.popup__input_add-link').value
+  const formAddTitle = formAddForm.querySelector('.popup__form_title').value
+  const inputAddlink = formAddForm.querySelector('.popup__input_link').value
   const obj =
         {
             name: formAddTitle,
