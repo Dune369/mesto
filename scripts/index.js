@@ -47,6 +47,7 @@ addButton.addEventListener('click', AddPop);
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+
     title.textContent = nameInput.value;
     sabtitle.textContent = jobInput.value;
     popup.classList.remove('popup_opened');
@@ -88,7 +89,6 @@ function getCard(todo) {
   const elementsLike = userTemplateСlone.querySelector('.elements__like');
   const elementsRemove = userTemplateСlone.querySelector('.elements__remove');
   const elementsImg = userTemplateСlone.querySelector('img');
-
         elementsImg.src = todo.link;
         elementsImg.alt = todo.name;
         userTemplateСlone.querySelector('.elements__title').textContent = todo.name;
@@ -99,7 +99,7 @@ function getCard(todo) {
   // добавление лайка
   addLike(elementsLike);
 
-  // открытие картинки как popap
+   // открытие картинки как popap
 
   userTemplateСlone.querySelector('.elements__img').addEventListener('click', event => {
   event.preventDefault();
@@ -114,10 +114,9 @@ function getCard(todo) {
 
 initialCards.forEach(getCard);
 
-
-
 // Закрытие картинки popap
-function closePopapImg(){
+
+function closeClickImg(){
   clickImg.classList.remove('click-img_opened');
 }
 clickImgButtonClose.addEventListener('click', closeClickImg);
