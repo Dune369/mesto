@@ -85,51 +85,59 @@ const initialCards = [
 
 // Подтягиваем значения из массива initialCards, затем передаю в шаблон  template = elements-toddo
 
-function addToddo(todo) {
+function getCard(todo) {
   const userTemplateСlone = userTemplate.content.cloneNode(true);
   const elementsImg = userTemplateСlone.querySelector('img');
         elementsImg.src = todo.link;
         elementsImg.alt = todo.name;
         userTemplateСlone.querySelector('.elements__title').textContent = todo.name;
 
-// Удаление элемента из массива
-removerElements(userTemplateСlone);
+  // Удаление элемента из массива
+  removerElements(userTemplateСlone);
 
- // добавление лайка
-addLike(userTemplateСlone);
+  // добавление лайка
+  addLike(userTemplateСlone);
 
- // открытие картинки как popap
-openPopapIimg(userTemplateСlone)
+   // открытие картинки как popap
+
+  userTemplateСlone.querySelector('.elements__img').addEventListener('click', event => {
+  event.preventDefault();
+      clickImg.classList.add('click-img_opened');
+      ImgClick.src = todo.link;
+      ImgClick.alt = todo.name;
+      clickImgTitle.textContent = todo.name;
+  })
 
   elementsItem.prepend(userTemplateСlone);
 }
 
-initialCards.forEach(addToddo);
+initialCards.forEach(getCard);
 
 // Закрытие картинки popap
 const clickImgButtonClose = document.querySelector('.click-img__button-close');
-function closeClickImg(){
+  function closeClickImg(){
   clickImg.classList.remove('click-img_opened');
 }
 clickImgButtonClose.addEventListener('click', closeClickImg);
 
 // Добавляем в массив ссылку и текст
 const formAddForm = document.querySelector('.popup__form_add');
-formAddForm.addEventListener('submit', event => {
-  event.preventDefault();
-  const formAddTitle = formAddForm.querySelector('.popup__input_title').value
-  const inputAddlink = formAddForm.querySelector('.popup__input_link').value
-  const obj =
-        {
-            name: formAddTitle,
-            link: inputAddlink
-        }
-      ;
-  addToddo(obj);
-  popupAdd.classList.remove('popup_opened');
+  formAddForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const formAddTitle = formAddForm.querySelector('.popup__input_title').value
+    const inputAddlink = formAddForm.querySelector('.popup__input_link').value
+    const obj =
+          {
+              name: formAddTitle,
+              link: inputAddlink
+          }
+        ;
+    getCard(obj);
+    popupAdd.classList.remove('popup_opened');
   formAddForm.reset();
 });
 
+const elementsLike = .querySelector('.elements__like')
 
  // добавление лайка
 function addLike(userTemplateСlone){
@@ -150,13 +158,4 @@ function removerElements(userTemplateСlone){
   })
 }
 
- // открытие картинки как popap
-function openPopapIimg(userTemplateСlone){
-  userTemplateСlone.querySelector('.elements__img').addEventListener('click', event => {
-  event.preventDefault();
-      clickImg.classList.add('click-img_opened');
-      ImgClick.src = todo.link;
-      ImgClick.alt = todo.name;
-      clickImgTitle.textContent = todo.name;
-  })
-};
+
