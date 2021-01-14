@@ -88,8 +88,9 @@ function getCard(todo) {
   const userTemplateСlone = userTemplate.content.cloneNode(true);
   const elementsLike = userTemplateСlone.querySelector('.elements__like');
   const elementsRemove = userTemplateСlone.querySelector('.elements__remove');
-  const elementsImg = userTemplateСlone.querySelector('.elements__img')
-  const elementsyTitle = userTemplateСlone.querySelector('.elements__title')
+  const elementsImg = userTemplateСlone.querySelector('.elements__img');
+  const elementsyTitle = userTemplateСlone.querySelector('.elements__title');
+
   elementsImg.src = todo.link;
   elementsImg.alt = todo.name;
   elementsyTitle.textContent = todo.name;
@@ -100,8 +101,7 @@ function getCard(todo) {
   // добавление лайка
   addLike(elementsLike);
 
-   // открытие картинки как popap
-
+  // открытие картинки как popap
   elementsImg.addEventListener('click', event => {
   event.preventDefault();
       clickImg.classList.add('click-img_opened');
@@ -116,7 +116,6 @@ function getCard(todo) {
 initialCards.forEach(getCard);
 
 // Закрытие картинки popap
-
 function closeClickImg(){
   clickImg.classList.remove('click-img_opened');
 }
@@ -124,7 +123,6 @@ clickImgButtonClose.addEventListener('click', closeClickImg);
 
 
 // Добавляем в массив ссылку и текст
-
   formAddForm.addEventListener('submit', event => {
     event.preventDefault();
     const formAddTitle = formAddForm.querySelector('.popup__input_title').value
@@ -140,9 +138,7 @@ clickImgButtonClose.addEventListener('click', closeClickImg);
   formAddForm.reset();
 });
 
-
-
- // добавление лайка
+// Добавление лайка
 function addLike(elementsLike){
   elementsLike.addEventListener('click', event => {
   event.preventDefault();
@@ -154,7 +150,6 @@ function addLike(elementsLike){
 function removerElements(elementsRemove){
   elementsRemove.addEventListener('click', event => {
   const todobo = event.target.closest('.elements__item');
-
    if (todobo){
       todobo.remove();
    }
