@@ -89,9 +89,10 @@ function getCard(todo) {
   const elementsLike = userTemplateСlone.querySelector('.elements__like');
   const elementsRemove = userTemplateСlone.querySelector('.elements__remove');
   const elementsImg = userTemplateСlone.querySelector('.elements__img')
-        elementsImg.src = todo.link;
-        elementsImg.alt = todo.name;
-        userTemplateСlone.querySelector('.elements__title').textContent = todo.name;
+  const elementsyTitle = userTemplateСlone.querySelector('.elements__title')
+  elementsImg.src = todo.link;
+  elementsImg.alt = todo.name;
+  elementsyTitle.textContent = todo.name;
 
   // Удаление элемента из массива
   removerElements(elementsRemove);
