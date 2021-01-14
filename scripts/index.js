@@ -88,7 +88,7 @@ function getCard(todo) {
   const userTemplateСlone = userTemplate.content.cloneNode(true);
   const elementsLike = userTemplateСlone.querySelector('.elements__like');
   const elementsRemove = userTemplateСlone.querySelector('.elements__remove');
-  const elementsImg = userTemplateСlone.querySelector('img');
+  const elementsImg = userTemplateСlone.querySelector('.elements__img')
         elementsImg.src = todo.link;
         elementsImg.alt = todo.name;
         userTemplateСlone.querySelector('.elements__title').textContent = todo.name;
@@ -101,7 +101,7 @@ function getCard(todo) {
 
    // открытие картинки как popap
 
-  userTemplateСlone.querySelector('.elements__img').addEventListener('click', event => {
+  elementsImg.addEventListener('click', event => {
   event.preventDefault();
       clickImg.classList.add('click-img_opened');
       ImgClick.src = todo.link;
