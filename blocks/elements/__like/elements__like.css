@@ -11,4 +11,7 @@
   background-color: transparent;
 }
 
+.elements__like:hover {
+  opacity: 50%;
+}
 

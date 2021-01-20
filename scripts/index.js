@@ -1,129 +1,125 @@
 const popup = document.querySelector('.popup');
 
-const popupClose = document.querySelector('.popup__close');
-
 const popupEdit = document.querySelector('.popup_edit');
-const editButton = document.querySelector('.profile__edit-button');
+const popupAdd = document.querySelector('.popup_add-a-place');
 
 const title = document.querySelector('.profile__title');
-const sabtitle = document.querySelector('.profile__sabtitle');
+const subtitle = document.querySelector('.profile__sabtitle');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_title');
 
-const popupAdd = document.querySelector('.popup_add-a-place');
-const addButton = document.querySelector('.profile__add-button');
-const popupCloseAdd = document.querySelector('.popup__close_add-a-place');
 
 const elementsItem = document.querySelector('.elements__items');
 const userTemplate = document.querySelector('.elements-toddo');
 const clickImg = document.querySelector('.click-img');
 const ImgClick = clickImg.querySelector('.click-img__img');
 const clickImgTitle = clickImg.querySelector('.click-img__title');
-
-const clickImgButtonClose = document.querySelector('.click-img__button-close');
 const formAddForm = document.querySelector('.popup__form_add');
 
-// Находим форму в DOM
-const formElement = document.querySelector('.popup__form');
 
-function AddPopap(){
-  popupEdit.classList.toggle('popup_opened')
+const popupClose = document.querySelector('.popup__close'); // крестик закрыть
+const popupCloseAdd = document.querySelector('.popup__close_add-a-place'); // крестик закрыть
+const clickImgButtonClose = document.querySelector('.click-img__button-close'); // крестик закрыть
+
+const editButton = document.querySelector('.profile__edit-button'); // opan формы редактирования
+const addButton = document.querySelector('.profile__add-button'); // opan формы добавления cards
+
+
+const formElement = document.querySelector('.popup__form');// Находим форму в DOM
+
+// Заполнение формы по умочанию в popap
+function addPopap(){
   nameInput.value = title.textContent;
-  jobInput.value = sabtitle.textContent;
+  jobInput.value = subtitle.textContent;
 }
 
-function AddPop(){
-  popupAdd.classList.toggle('popup_opened');
+// Закрытие popap
+function closePopup(popup){
+  popup.classList.remove('popup_opened'); //удаляем у popup класс popup_opened
+  clickImg.classList.remove('click-img_opened'); //удаляем у popup класс click-img_opened
 }
 
-// Закрыть форму popap
-popupClose.addEventListener('click', AddPopap);
-popupCloseAdd.addEventListener('click', AddPop);
+popupCloseAdd.addEventListener('click', () => closePopup(popupAdd));
+popupClose.addEventListener('click', () => closePopup(popupEdit));
+clickImgButtonClose.addEventListener('click', () => closePopup(clickImg));
 
-// Открыть форму
-editButton.addEventListener('click', AddPopap);
-addButton.addEventListener('click', AddPop);
+// Открыть popap
+function openPopup(popup){
+  popup.classList.add('popup_opened');
+  addPopap();
+};
+
+addButton.addEventListener('click', () => openPopup(popupAdd));
+editButton.addEventListener('click', () => openPopup(popupEdit));
 
 
+// Сохранения в popap данных
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-
     title.textContent = nameInput.value;
-    sabtitle.textContent = jobInput.value;
-    popup.classList.remove('popup_opened');
+    subtitle.textContent = jobInput.value;
+    closePopup(popup);
 }
+
 
 formElement.addEventListener('submit', formSubmitHandler);
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+// добавление лайка
+const handleLikeIcon = (evt) => {
+  evt.target.classList.toggle('elements__like_cklic');
+ };
 
-// Подтягиваем значения из массива initialCards, затем передаю в шаблон  template = elements-toddo
 
-function getCard(todo) {
-  const userTemplateСlone = userTemplate.content.cloneNode(true);
-  const elementsLike = userTemplateСlone.querySelector('.elements__like');
-  const elementsRemove = userTemplateСlone.querySelector('.elements__remove');
-  const elementsImg = userTemplateСlone.querySelector('.elements__img');
-  const elementsyTitle = userTemplateСlone.querySelector('.elements__title');
-
-  elementsImg.src = todo.link;
-  elementsImg.alt = todo.name;
-  elementsyTitle.textContent = todo.name;
-
-  // Удаление элемента из массива
-  removerElements(elementsRemove);
-
-  // добавление лайка
-  addLike(elementsLike);
+//  Удаление элемента из массива
+const handleDeleteCard = (evt) => {
+  evt.target.closest('.elements__item').remove();
+};
 
   // открытие картинки как popap
-  elementsImg.addEventListener('click', event => {
-  event.preventDefault();
-      clickImg.classList.add('click-img_opened');
-      ImgClick.src = todo.link;
-      ImgClick.alt = todo.name;
-      clickImgTitle.textContent = todo.name;
-  })
+const handlePreviewPicture = (data) => {
+  clickImg.classList.add('click-img_opened');
+  ImgClick.src = data.link;
+  ImgClick.alt = data.name;
+  clickImgTitle.textContent = data.name;
+};
 
-  elementsItem.prepend(userTemplateСlone);
+
+// создание карточек
+function createCard(data) {
+
+    let сloneСard = userTemplate.content.cloneNode(true);
+    const likeButton= сloneСard.querySelector('.elements__like');
+    const elementRemove = сloneСard.querySelector('.elements__remove');
+    const elementsyTitle = сloneСard.querySelector('.elements__title');
+    const elementImg = сloneСard.querySelector('.elements__img');
+    elementImg.src = data.link;
+    elementImg.alt = data.name;
+    elementsyTitle.textContent = data.name;
+
+    // Удаление элемента из массива
+    elementRemove.addEventListener('click', handleDeleteCard);
+
+    // добавление лайка
+    likeButton.addEventListener('click', handleLikeIcon);
+
+    // открытие картинки как popap
+    elementImg.addEventListener('click', () => handlePreviewPicture(data));
+    return сloneСard;
 }
 
-initialCards.forEach(getCard);
-
-// Закрытие картинки popap
-function closeClickImg(){
-  clickImg.classList.remove('click-img_opened');
+// отрисовка карточек
+function renderingCard(data, elementsItem) {
+  let card = createCard(data);
+  elementsItem.prepend(card);
+  debugger;
 }
-clickImgButtonClose.addEventListener('click', closeClickImg);
 
 
-// Добавляем в массив ссылку и текст
-  formAddForm.addEventListener('submit', event => {
+initialCards.forEach(data => renderingCard(data, elementsItem));
+
+
+// Добавляем с формы отправки в массив ссылку и текст
+formAddForm.addEventListener('submit', event => {
     event.preventDefault();
     const formAddTitle = formAddForm.querySelector('.popup__input_title').value
     const inputAddlink = formAddForm.querySelector('.popup__input_link').value
@@ -133,27 +129,9 @@ clickImgButtonClose.addEventListener('click', closeClickImg);
               link: inputAddlink
           }
         ;
-    getCard(obj);
+    renderingCard(obj, elementsItem);
     popupAdd.classList.remove('popup_opened');
   formAddForm.reset();
 });
-
-// Добавление лайка
-function addLike(elementsLike){
-  elementsLike.addEventListener('click', event => {
-  event.preventDefault();
-  event.target.classList.toggle('elements__like_cklic');
- })
-}
-
-//  Удаление элемента из массива
-function removerElements(elementsRemove){
-  elementsRemove.addEventListener('click', event => {
-  const todobo = event.target.closest('.elements__item');
-   if (todobo){
-      todobo.remove();
-   }
-  })
-}
 
 
